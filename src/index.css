@@ -464,6 +464,13 @@ form input {
   .filter-div {
     width: 50%;
   }
+  .country-name {
+    font-size: 2rem;
+  }
+  .filter-items li {
+    font-size: 1.5rem;
+    padding-block: .8em;
+  }
 }
 @media (max-width: 600px) {
   .constant-padding {

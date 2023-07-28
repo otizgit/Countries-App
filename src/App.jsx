@@ -3,6 +3,7 @@ import DisplayTray from "./Components/DisplayTray";
 import SelectedTray from "./Components/SelectedTray";
 import FilterAndSearch from "./Components/FilterAndSearch";
 import Header from "./Components/Header";
+import ScrollButton from "./Components/ScrollButton";
 
 export default function App() {
   const [allData, setAllData] = useState([]);
@@ -11,6 +12,7 @@ export default function App() {
   const [triggerSearch, setTriggerSearch] = useState(true);
   const [selectedCountry, setSelectedCountry] = useState(false);
   const [gridDisplay, setGridDisplay] = useState("");
+  const [randomCountriesDisplay, setRandomCountriesDisplay] = useState(false)
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -51,7 +53,7 @@ export default function App() {
           setCountries(randomCountries);
         }
       });
-  }, []);
+  }, [randomCountriesDisplay]);
 
   useEffect(() => {
     if (countries.length && countries.length === 1) {
@@ -62,7 +64,7 @@ export default function App() {
   }, [countries]);
 
   return (
-    <div>
+    <div className="overall-container">
       <Header />
       {!triggerDisplay && (
         <FilterAndSearch
@@ -70,6 +72,7 @@ export default function App() {
           countries={setCountries}
           trigger={triggerSearch}
           triggerSearch={setTriggerSearch}
+          triggerRandomCountries = {setRandomCountriesDisplay}
         />
       )}
       {!triggerDisplay && (
@@ -88,6 +91,7 @@ export default function App() {
           triggerDisplay={triggerDisplay}
         />
       )}
+      <ScrollButton />
     </div>
   );
 }

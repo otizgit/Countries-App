@@ -4,6 +4,11 @@ export default function Countries(props) {
   function handleClick() {
     props.trigger(true);
     props.selectedCountry(props.name);
+    
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   return (

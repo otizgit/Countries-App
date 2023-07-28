@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 export default function FilterAndSearch(props) {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState("Filter By Region");
+  const [isFiltered, setIsFiltered] = useState(false);
 
   function trackSearch(e) {
     let value = e.target.value;
@@ -17,7 +19,7 @@ export default function FilterAndSearch(props) {
         if (search !== "") {
           if (!data.length) {
             alert(
-              "Oops, this country does not exist, please check the spelling or try searching another country"
+              "Oops, this country does not exist, please check the spelling or try searching for another country"
             );
           } else {
             props.countries(data);
@@ -38,6 +40,9 @@ export default function FilterAndSearch(props) {
 
   function handleClick(e) {
     const target = e.target.innerText;
+    setSelectedRegion(target);
+    setIsFiltered(true);
+
     const filteredCountries = props.data.filter((country) => {
       return country.region === target;
     });
@@ -59,6 +64,13 @@ export default function FilterAndSearch(props) {
 
   function handleChange() {
     setIsOpen((prevOpen) => !prevOpen);
+  }
+
+  function setRandomCountries() {
+    setSelectedRegion("Filter By Region");
+    setIsFiltered(false);
+    setIsOpen(true);
+    props.triggerRandomCountries((prevRandomCountries) => !prevRandomCountries);
   }
 
   const filteredData = props.data.reduce((values, countriesData) => {
@@ -83,12 +95,20 @@ export default function FilterAndSearch(props) {
         />
       </form>
       <div onClick={handleChange} className="filter-div flex-main transition">
-        <p className="standard-fz2 blue weight">Filter by Region</p>
-        <i
-          className={`fa-solid fa-chevron-down blue standard-fz2 transition ${
-            isOpen ? "rotate" : ""
-          }`}
-        ></i>
+        <p className="standard-fz2 blue weight">{selectedRegion}</p>
+        <div className="filter-icon-wrapper flex-main">
+          {isFiltered && (
+            <i
+              onClick={setRandomCountries}
+              className="fa-solid fa-xmark standard-fz transition"
+            ></i>
+          )}
+          <i
+            className={`fa-solid fa-chevron-down blue standard-fz2 transition ${
+              isOpen ? "rotate" : ""
+            }`}
+          ></i>
+        </div>
         <ul className={`filter-items blue transition ${isOpen ? "open" : ""}`}>
           {filteredData.map((data) => {
             return (

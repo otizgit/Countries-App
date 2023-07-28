@@ -1,50 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-}
-
-img,
-svg,
-audio,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollBg) transparent;
-}
-
-html::-webkit-scrollbar {
-  width: 0.5vw;
-}
-html::-webkit-scrollbar-thumb {
-  background-color: var(--scrollBg);
-}
-html::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(0, 0%, 30%);
-}
-html::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-body {
-  background-color: var(--VeryLightGray--LightModeBackground);
-  padding-bottom: clamp(10em, 8vw, 50em);
-}
-
 :root {
   /* COLORS: */
   --DarkBlue--DarkModeElements: hsl(209, 23%, 22%);
@@ -81,6 +37,99 @@ body {
   --grey: hsl(0, 0%, 90%);
   --border-shadow: hsla(0, 0%, 19%, 0.45);
   --headerShadow: rgba(0, 0, 0, 0.836);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+img,
+svg,
+audio,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollBg) transparent;
+}
+
+.overall-container {
+  padding-bottom: clamp(10em, 8vw, 50em);
+  position: relative;
+}
+
+.to-top {
+  position: fixed;
+  right: 3em;
+  bottom: 3em;
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: var(--VeryDarkBlue--LightModeText);
+  width: clamp(5rem, 5vw, 20rem);
+  height: clamp(5rem, 5vw, 20rem);
+  display: grid;
+  place-items: center;
+  transform: scale(0);
+}
+.to-top img {
+  width: clamp(4rem, 3vw, 10rem);
+  transform: rotate(-45deg);
+}
+
+@keyframes initAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+.not-scrolled {
+  animation: initAnim .35s ease forwards;
+}
+@keyframes scrolledAnim {
+  0% {
+    transform: scale(0);
+  } 
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.scrolled {
+ animation: scrolledAnim .35s ease-in-out forwards;
+}
+
+html::-webkit-scrollbar {
+  width: 0.5vw;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--scrollBg);
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 30%);
+}
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body {
+  background-color: var(--VeryLightGray--LightModeBackground);
 }
 
 /*? UTILS: */
@@ -210,6 +259,16 @@ form input {
   background-color: var(--White--DarkModeText-LightModeElements);
 }
 
+.filter-icon-wrapper i:last-child {
+  margin-left: 0.5em;
+}
+.fa-xmark {
+  padding-right: 0.5em;
+  border-right: 2px solid var(--VeryDarkBlue--LightModeText);
+  font-size: var(--clamp17);
+  color: red;
+}
+
 .filter-items {
   position: absolute;
   z-index: 100;
@@ -250,7 +309,7 @@ form input {
   background-color: var(--White--DarkModeText-LightModeElements);
   overflow: hidden;
   border-radius: 0.6em;
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 0px 13px rgba(0, 0, 0, 0.418);
   cursor: pointer;
 }
 .country-wrapper:hover .display-img {
@@ -322,7 +381,7 @@ form input {
 }
 
 .exit-btn {
-  padding: .8em 2em;
+  padding: 0.8em 2em;
   display: flex;
   align-items: center;
   gap: 1em;
@@ -435,6 +494,10 @@ form input {
   .borders {
     text-align: center;
   }
+  .to-top {
+    width: clamp(7rem, 7vw, 20rem);
+    height: clamp(7rem, 7vw, 20rem);
+  }
 }
 @media (max-width: 500px) {
   .single-grid {
@@ -484,7 +547,7 @@ form input {
   }
   .filter-items li {
     font-size: 1.5rem;
-    padding-block: .7em;
+    padding-block: 0.7em;
   }
 }
 @media (max-width: 600px) {
@@ -495,6 +558,9 @@ form input {
     padding: unset;
     width: 83%;
     margin-inline: auto;
+  }
+  .filter-icon-wrapper i {
+    font-size: 1.8em;
   }
 }
 @media (max-width: 501px) {

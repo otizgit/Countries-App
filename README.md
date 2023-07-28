@@ -1,4 +1,6 @@
 # Countries-App
+In this project, information about all the countries on planet earth is being displayed and is accessible through out the website, there is also the functionalty to filter countries based on region and also to search for a specific country and get the appropriate feedback
+
 ![Screenshot (572)](https://github.com/otizgit/Countries-App/assets/110433564/1e363cbc-50b7-46ef-bc01-ac4054efd930)
 ![Screenshot (573)](https://github.com/otizgit/Countries-App/assets/110433564/fee26c2e-ad19-4230-a87c-4a51942f10a5)
 ![countries-light1](https://github.com/otizgit/Countries-App/assets/110433564/3dfae51a-c2a6-47c9-a22b-31808a4342b2)

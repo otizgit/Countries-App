@@ -1,49 +1,48 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Header() {
-  const [themeSwitch, setThemeSwitch] = useState(false);
+  const body = document.body;
+  let lightTheme = "light";
+  let darkTheme = "dark";
+  let theme;
 
-  if (localStorage.getItem("theme") === null) {
-    localStorage.setItem("theme", "light");
+  if (localStorage) {
+    theme = localStorage.getItem("theme");
   }
-  function setDarkMode() {
-    document.querySelector("body").setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-  }
-  function setLightMode() {
-    document.querySelector("body").setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-  }
-
-  const theme = localStorage.getItem("theme");
-  if (theme === "dark") {
-    setDarkMode();
+  if (theme === lightTheme || theme === darkTheme) {
+    body.setAttribute("data-theme", theme);
   } else {
-    setLightMode();
+    body.setAttribute("data-theme", lightTheme);
   }
 
-  function toggleTheme() {
-    setThemeSwitch((prevTheme) => !prevTheme);
-    if (themeSwitch === true) {
-      setDarkMode();
+  function toggleTheme(e) {
+    if (theme === darkTheme) {
+      body.setAttribute("data-theme", lightTheme);
+      localStorage.setItem("theme", "light");
+      theme = lightTheme;
+      e.target.src = "sun.png";
     } else {
-      setLightMode();
+      body.setAttribute("data-theme", darkTheme);
+      localStorage.setItem("theme", "dark");
+      theme = darkTheme;
+      e.target.src = "moon.webp";
     }
   }
 
   return (
     <header className="flex-main blue constant-margin constant-padding">
       <h1 className="title">Where in the world?</h1>
-      <div onClick={toggleTheme} className="mode flex transition">
-        <i
-          className={`fa-solid ${
-            theme === "dark" ? "fa-moon" : "fa-sun"
-          } standard-fz`}
-        ></i>
-        <p className="standard-fz">
-          {`${theme} Mode`}
-        </p>
+      <div
+        onClick={toggleTheme}
+        className="mode flex transition theme-img-wrapper"
+      >
+        <img
+          className="theme-img"
+          src={
+            localStorage.getItem("theme") === "dark" ? "moon.webp" : "sun.png"
+          }
+          alt=""
+        />
       </div>
     </header>
   );

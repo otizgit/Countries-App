@@ -35,6 +35,19 @@ export default function App() {
           randomNumbersArray.forEach((randomNumber) => {
             randomCountries.push(data[randomNumber]);
           });
+
+          randomCountries.sort((a, b) => {
+            const firstCountry = a.name.common.toLowerCase();
+            const restCountries = b.name.common.toLowerCase();
+            if (firstCountry < restCountries) {
+              return -1;
+            }
+            if (firstCountry > restCountries) {
+              return 1;
+            }
+            return 0;
+          });
+      
           setCountries(randomCountries);
         }
       });

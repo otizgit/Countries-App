@@ -41,6 +41,19 @@ export default function FilterAndSearch(props) {
     const filteredCountries = props.data.filter((country) => {
       return country.region === target;
     });
+
+    filteredCountries.sort((a, b) => {
+      const firstCountry = a.name.common.toLowerCase();
+      const restCountries = b.name.common.toLowerCase();
+      if (firstCountry < restCountries) {
+        return -1;
+      }
+      if (firstCountry > restCountries) {
+        return 1;
+      }
+      return 0;
+    });
+
     props.countries(filteredCountries);
   }
 

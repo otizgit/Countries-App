@@ -56,6 +56,7 @@ body {
   --grey: grey;
   --scrollBg: hsl(0, 0%, 21%);
   --border-shadow: hsla(0, 0%, 0%, 0.45);
+  --headerShadow: rgba(0, 0, 0, 0.16);
 
   /*! CLAMPS: */
   --clamp1: clamp(1rem, 1vw, 2rem);
@@ -79,6 +80,7 @@ body {
   --White--DarkModeText-LightModeElements: hsl(208, 30%, 13%);
   --grey: hsl(0, 0%, 90%);
   --border-shadow: hsla(0, 0%, 19%, 0.45);
+  --headerShadow: rgba(0, 0, 0, 0.836);
 }
 
 /*? UTILS: */
@@ -133,8 +135,13 @@ body {
 
 header {
   background-color: var(--White--DarkModeText-LightModeElements);
-  padding-block: 1.5em;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.055);
+  padding-block: var(--clamp2);
+  box-shadow: 0 3px 7px var(--headerShadow);
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .title {
@@ -156,6 +163,10 @@ header {
 }
 .flex i {
   transform: rotate(-20deg);
+}
+
+.theme-img {
+  width: clamp(4em, 3vw, 20em);
 }
 
 form {
@@ -193,7 +204,7 @@ form input {
   position: relative;
   border-radius: 6px;
   flex-basis: clamp(18rem, 13vw, 1000rem);
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.41);
   cursor: pointer;
   padding: var(--clamp13) var(--clamp15);
   background-color: var(--White--DarkModeText-LightModeElements);
@@ -263,11 +274,11 @@ form input {
 }
 
 .sub-texts {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--VeryDarkBlue--LightModeText);
 }
 .sub-texts span {
-  font-weight: 400;
+  font-weight: 500;
 }
 .currencies {
   text-transform: capitalize;
@@ -379,8 +390,9 @@ form input {
 }
 .borders {
   padding: 0.5em 2em;
-  box-shadow: 0 0px 5px var(--border-shadow);
+  box-shadow: 0 0px 5px var(--headerShadow);
   background-color: var(--White--DarkModeText-LightModeElements);
+  font-weight: 700 !important;
 }
 
 @media (max-width: 1140px) {
@@ -401,7 +413,7 @@ form input {
     height: unset;
   }
   .filter-title {
-    font-size: 2.3rem;
+    font-size: 3rem;
   }
   .filter-wrapper2 {
     gap: 1em;
@@ -427,6 +439,9 @@ form input {
 @media (max-width: 500px) {
   .single-grid {
     grid-template-columns: 1fr;
+  }
+  .theme-img {
+    width: 2.5em;
   }
 }
 @media (max-width: 1030px) {
@@ -469,7 +484,7 @@ form input {
   }
   .filter-items li {
     font-size: 1.5rem;
-    padding-block: .8em;
+    padding-block: .7em;
   }
 }
 @media (max-width: 600px) {
@@ -494,10 +509,6 @@ form input {
   }
 }
 @media (max-width: 360px) {
-  header {
-    flex-direction: column;
-    gap: 1em;
-  }
   .filter-div {
     width: 100%;
   }
@@ -511,5 +522,11 @@ form input {
   }
   .border-wrapper {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 300px) {
+  header {
+    flex-direction: column;
+    gap: 1em;
   }
 }

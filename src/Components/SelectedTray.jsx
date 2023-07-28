@@ -39,15 +39,16 @@ export default function SelectedTray(props) {
                 <div className="information-wrapper">
                   <div className="filter-wrapper filter-wrapper2 filter-content-container">
                     <div>
-                      <p className="sub-texts standard-fz3">
-                        Native Name:{" "}
-                        {data.altSpellings.length >= 1 && (
-                          <span>{data.altSpellings[2]}</span>
-                        )}
-                        {data.altSpellings.length === 1 && (
-                          <span>{data.altSpellings[0]}</span>
-                        )}
-                      </p>
+                      {data.name.nativeName && (
+                        <p className="sub-texts standard-fz3">
+                          Native Name:{" "}
+                          <span>
+                            {Object.values(data.name.nativeName).length > 1
+                              ? Object.values(data.name.nativeName)[1].official
+                              : Object.values(data.name.nativeName)[0].official}
+                          </span>
+                        </p>
+                      )}
                     </div>
                     <div>
                       <p className="sub-texts standard-fz3">

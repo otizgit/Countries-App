@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function Header() {
   const body = document.body;
@@ -20,30 +20,28 @@ export default function Header() {
       body.setAttribute("data-theme", lightTheme);
       localStorage.setItem("theme", "light");
       theme = lightTheme;
-      e.target.src = "sun.png";
+      e.target.src = "/sun.png";
     } else {
       body.setAttribute("data-theme", darkTheme);
       localStorage.setItem("theme", "dark");
       theme = darkTheme;
-      e.target.src = "moon.webp";
+      e.target.src = "/moon.webp";
     }
   }
 
   return (
     <header className="flex-main blue constant-margin constant-padding">
       <h1 className="title">Where in the world?</h1>
-      <div
-        onClick={toggleTheme}
-        className="mode flex transition theme-img-wrapper"
-      >
+      <button className="mode flex transition theme-img-wrapper">
         <img
+          onClick={toggleTheme}
           className="theme-img"
           src={
-            localStorage.getItem("theme") === "dark" ? "moon.webp" : "sun.png"
+            localStorage.getItem("theme") === "dark" ? "/moon.webp" : "/sun.png"
           }
-          alt=""
+          alt="theme-image"
         />
-      </div>
+      </button>
     </header>
   );
 }

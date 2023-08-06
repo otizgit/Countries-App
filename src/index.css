@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 :root {
   /* COLORS: */
@@ -98,12 +99,12 @@ html {
   }
 }
 .not-scrolled {
-  animation: initAnim .35s ease forwards;
+  animation: initAnim 0.35s ease forwards;
 }
 @keyframes scrolledAnim {
   0% {
     transform: scale(0);
-  } 
+  }
   90% {
     transform: scale(1.2);
   }
@@ -112,7 +113,7 @@ html {
   }
 }
 .scrolled {
- animation: scrolledAnim .35s ease-in-out forwards;
+  animation: scrolledAnim 0.35s ease-in-out forwards;
 }
 
 html::-webkit-scrollbar {
@@ -131,7 +132,10 @@ html::-webkit-scrollbar-track {
 body {
   background-color: var(--VeryLightGray--LightModeBackground);
 }
-
+button {
+  border: none;
+  background: transparent;
+}
 /*? UTILS: */
 .transition {
   transition: 0.3s ease;
@@ -215,7 +219,7 @@ header {
 }
 
 .theme-img {
-  width: clamp(4em, 3vw, 20em);
+  width: clamp(3em, 3vw, 20em);
 }
 
 form {
@@ -317,7 +321,7 @@ form input {
 }
 
 .display-img {
-  height: clamp(148px, 10vw, 300px);
+  height: clamp(148px, 10vw, 400px);
   width: 100%;
   object-fit: cover;
 }
@@ -325,6 +329,7 @@ form input {
 .country-content {
   padding: var(--clamp2);
   padding-bottom: var(--clamp4);
+  text-align: left;
 }
 .country-name {
   font-weight: 900;
@@ -368,18 +373,6 @@ form input {
   }
 }
 
-.filter-overall-wrapper {
-  transform: scale(0);
-}
-.slide {
-  animation: slideIn 0.4s ease forwards;
-}
-@keyframes slideIn {
-  to {
-    transform: scale(1);
-  }
-}
-
 .exit-btn {
   padding: 0.8em 2em;
   display: flex;
@@ -400,6 +393,7 @@ form input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10em;
+  align-items: center;
 }
 
 .selected-flag {
@@ -452,6 +446,37 @@ form input {
   box-shadow: 0 0px 5px var(--headerShadow);
   background-color: var(--White--DarkModeText-LightModeElements);
   font-weight: 700 !important;
+}
+
+.error-container {
+  flex-direction: column;
+  padding-top: clamp(3em, 2vw, 20em);
+  text-align: center;
+}
+.error-container h1 {
+  font-family: "Abril Fatface", cursive, Arial, Helvetica, sans-serif;
+}
+.error-img {
+  width: clamp(26rem, 20vw, 200rem);
+}
+.error-title {
+  font-size: clamp(4rem, 3vw, 40rem);
+  color: red;
+}
+.error-sub {
+  font-size: clamp(2.5em, 2vw, 10em);
+  color: var(--VeryDarkBlue--LightModeText);
+  margin-bottom: var(--clamp2);
+}
+.back-to-home {
+  background-color: rgb(88, 10, 136);
+  color: var(--White--DarkModeText-LightModeElements);
+  padding: var(--clamp1) var(--clamp17);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.back-to-home:hover{
+  transform: scale(1.1);
 }
 
 @media (max-width: 1140px) {

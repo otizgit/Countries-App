@@ -7,9 +7,9 @@ export default function DisplayTray(props) {
     return (
       <Countries
         data={props.data}
+        key={nanoid()}
         selectedCountry={props.selectedCountry}
         trigger={props.trigger}
-        key={nanoid()}
         flag={dataEl.flags.svg}
         alt={dataEl.flags.alt}
         name={dataEl.name.common}
@@ -21,7 +21,9 @@ export default function DisplayTray(props) {
   });
 
   return (
-    <div className={`countries-wrapper grid ${props.gridDisplay} constant-padding`}>
+    <div
+      className={`countries-wrapper grid ${props.gridDisplay} constant-padding`}
+    >
       <img className="earth" src="./bgImage.webp" alt="the world" />
       {displayElement}
     </div>

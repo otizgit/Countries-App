@@ -5,7 +5,7 @@ export default function ScrollButton() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 900) {
         setIsScrolledClass("scrolled");
       } else {
         setIsScrolledClass("not-scrolled");

@@ -20,12 +20,12 @@ export default function Header() {
       body.setAttribute("data-theme", lightTheme);
       localStorage.setItem("theme", "light");
       theme = lightTheme;
-      e.target.src = "./sun.png";
+      e.target.src = "/sun.png";
     } else {
       body.setAttribute("data-theme", darkTheme);
       localStorage.setItem("theme", "dark");
       theme = darkTheme;
-      e.target.src = "./moon.webp";
+      e.target.src = "/moon.webp";
     }
   }
 
@@ -37,7 +37,7 @@ export default function Header() {
           onClick={toggleTheme}
           className="theme-img"
           src={
-            localStorage.getItem("theme") === "dark" ? "./moon.webp" : "./sun.png"
+            localStorage.getItem("theme") === "dark" ? "/moon.webp" : "/sun.png"
           }
           alt="theme-image"
         />

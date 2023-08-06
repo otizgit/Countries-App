@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import DisplayTray from "./DisplayTray";
 import FilterAndSearch from "./FilterAndSearch";
 import ScrollButton from "./ScrollButton";
-import Header from "./Header";
 
 export default function Home(props) {
   const [triggerSearch, setTriggerSearch] = useState(true);
@@ -19,7 +18,6 @@ export default function Home(props) {
 
   return (
     <div className="overall-container">
-      <Header />
       <FilterAndSearch
         data={props.allData}
         countries={props.setCountries}

@@ -1,7 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import { Link, useParams } from "react-router-dom";
-import Header from "./Header";
 
 export default function SelectedTray(props) {
   const { id } = useParams();
@@ -11,7 +10,6 @@ export default function SelectedTray(props) {
 
   return (
     <div className="overall-container">
-      <Header />
       <div className="filter-overall-wrapper constant-padding">
         <Link to="/Countries-App/" style={{ textDecoration: "none" }}>
           <button className="exit-btn standard-fz3 blue transition constant-margin">

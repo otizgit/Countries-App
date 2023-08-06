@@ -470,7 +470,7 @@ form input {
 }
 .back-to-home {
   background-color: rgb(88, 10, 136);
-  color: var(--White--DarkModeText-LightModeElements);
+  color: hsl(0, 0%, 100%);
   padding: var(--clamp1) var(--clamp17);
   border-radius: 30px;
   cursor: pointer;

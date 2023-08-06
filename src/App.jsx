@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import SelectedTray from "./Components/SelectedTray";
 import NotFound from "./Components/NotFound";
+import Header from "./Components/Header";
 
 export default function App() {
   const [allData, setAllData] = useState([]);
@@ -52,6 +53,7 @@ export default function App() {
 
   return (
     <>
+      <Header />
       <Routes>
         <Route
           path="/Countries-App/"

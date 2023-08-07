@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DisplayTray from "./DisplayTray";
 import FilterAndSearch from "./FilterAndSearch";
-import ScrollButton from "./ScrollButton";
 
 export default function Home(props) {
   const [triggerSearch, setTriggerSearch] = useState(true);
@@ -30,7 +29,6 @@ export default function Home(props) {
         data={props.countries}
         selectedCountry={setSelectedCountry}
       />
-      <ScrollButton />
     </div>
   );
 }

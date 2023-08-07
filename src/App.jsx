@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import SelectedTray from "./Components/SelectedTray";
 import NotFound from "./Components/NotFound";
 import Header from "./Components/Header";
+import ScrollButton from "./Components/ScrollButton";
 
 export default function App() {
   const [allData, setAllData] = useState([]);
@@ -72,6 +73,7 @@ export default function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ScrollButton />
     </>
   );
 }

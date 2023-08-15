@@ -23,7 +23,7 @@ export default function ScrollButton() {
   return (
     <div>
       <button onClick={scrollUp} className={`${isScrolledClass} to-top transition`}>
-        <img src="./rocket.gif" alt="rocket" />
+        <img src="../rocket.gif" alt="rocket" />
       </button>
     </div>
   );

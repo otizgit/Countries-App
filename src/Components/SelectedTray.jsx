@@ -1,7 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import { Link, useParams } from "react-router-dom";
-import ScrollButton from "./ScrollButton";
 
 export default function SelectedTray(props) {
   const { id } = useParams();
@@ -138,7 +137,6 @@ export default function SelectedTray(props) {
           );
         })}
       </div>
-      <ScrollButton />
     </div>
   );
 }

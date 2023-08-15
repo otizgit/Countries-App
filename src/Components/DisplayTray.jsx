@@ -24,7 +24,7 @@ export default function DisplayTray(props) {
     <div
       className={`countries-wrapper grid ${props.gridDisplay} constant-padding`}
     >
-      <img className="earth" src="./bgImage.webp" alt="the world" />
+      <img className="earth" src="./images/bgImage.webp" alt="the world" />
       {displayElement}
     </div>
   );

@@ -222,6 +222,10 @@ header {
   width: clamp(3em, 3vw, 20em);
 }
 
+.dark-mode-input {
+  display: none;
+}
+
 form {
   width: clamp(40rem, 32vw, 200rem);
   background-color: var(--White--DarkModeText-LightModeElements);

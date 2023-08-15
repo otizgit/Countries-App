@@ -1,46 +1,55 @@
 import React from "react";
 
 export default function Header() {
-  const body = document.body;
-  let lightTheme = "light";
-  let darkTheme = "dark";
-  let theme;
-
-  if (localStorage) {
-    theme = localStorage.getItem("theme");
+  function setDarkMode() {
+    document.querySelector("body").setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    if (document.querySelector(".flex-main")) {
+      const themeImage = document.querySelector(".theme-img");
+      themeImage.src = "../images/moon.webp";
+    }
   }
-  if (theme === lightTheme || theme === darkTheme) {
-    body.setAttribute("data-theme", theme);
-  } else {
-    body.setAttribute("data-theme", lightTheme);
+  function setLightMode() {
+    document.querySelector("body").setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    if (document.querySelector(".flex-main")) {
+      const themeImage = document.querySelector(".theme-img");
+      themeImage.src = "../images/sun.png";
+    }
+  }
+
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    setDarkMode();
   }
 
   function toggleTheme(e) {
-    if (theme === darkTheme) {
-      body.setAttribute("data-theme", lightTheme);
-      localStorage.setItem("theme", "light");
-      theme = lightTheme;
-      e.target.src = "../sun.png";
-    } else {
-      body.setAttribute("data-theme", darkTheme);
-      localStorage.setItem("theme", "dark");
-      theme = darkTheme;
-      e.target.src = "../moon.webp";
-    }
+    if (e.target.checked) setDarkMode();
+    else setLightMode();
   }
 
   return (
     <header className="flex-main blue constant-margin constant-padding">
       <h1 className="title">Where in the world?</h1>
       <button className="mode flex transition theme-img-wrapper">
-        <img
-          onClick={toggleTheme}
-          className="theme-img"
-          src={
-            localStorage.getItem("theme") === "dark" ? "../moon.webp" : "../sun.png"
-          }
-          alt="theme-image"
+        <input
+          className="dark-mode-input"
+          type="checkbox"
+          id="darkmode-toggle"
+          onChange={toggleTheme}
+          defaultChecked={theme === "dark"}
         />
+        <label htmlFor="darkmode-toggle">
+          <img
+            className="theme-img"
+            src={
+              localStorage.getItem("theme") === "dark"
+                ? "../images/moon.webp"
+                : "../images/sun.png"
+            }
+            alt=""
+          />
+        </label>
       </button>
     </header>
   );

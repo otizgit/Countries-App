@@ -9,6 +9,7 @@ export default function Header() {
       themeImage.src = "../images/moon.webp";
     }
   }
+  
   function setLightMode() {
     document.querySelector("body").setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");

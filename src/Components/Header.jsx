@@ -6,16 +6,16 @@ export default function Header() {
     localStorage.setItem("theme", "dark");
     if (document.querySelector(".flex-main")) {
       const themeImage = document.querySelector(".theme-img");
-      themeImage.src = "../images/moon.webp";
+      themeImage.setAttribute("src", "../images/moon.webp");
     }
   }
-  
+
   function setLightMode() {
     document.querySelector("body").setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");
     if (document.querySelector(".flex-main")) {
       const themeImage = document.querySelector(".theme-img");
-      themeImage.src = "../images/sun.png";
+      themeImage.setAttribute("src", "../images/sun.png");
     }
   }
 
@@ -38,18 +38,15 @@ export default function Header() {
           type="checkbox"
           id="darkmode-toggle"
           onChange={toggleTheme}
-          defaultChecked={theme === "dark"}
+          defaultChecked={theme === "light"}
         />
         <label htmlFor="darkmode-toggle">
-          <img
-            className="theme-img"
-            src={
-              localStorage.getItem("theme") === "dark"
-                ? "../images/moon.webp"
-                : "../images/sun.png"
-            }
-            alt=""
-          />
+          {localStorage.getItem("theme") === "dark" && (
+            <img className="theme-img" src="../images/moon.webp" alt="image of the moon" />
+          )}
+          {localStorage.getItem("theme") === "light" && (
+            <img className="theme-img" src="../images/sun.png" alt="image of the sun" />
+          )}
         </label>
       </button>
     </header>

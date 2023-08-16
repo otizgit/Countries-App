@@ -6,7 +6,7 @@ export default function Header() {
     localStorage.setItem("theme", "dark");
     if (document.querySelector(".flex-main")) {
       const themeImage = document.querySelector(".theme-img");
-      themeImage.setAttribute("src", "../images/moon.webp");
+      themeImage.setAttribute("src", "./images/moon.webp");
     }
   }
 
@@ -15,7 +15,7 @@ export default function Header() {
     localStorage.setItem("theme", "light");
     if (document.querySelector(".flex-main")) {
       const themeImage = document.querySelector(".theme-img");
-      themeImage.setAttribute("src", "../images/sun.png");
+      themeImage.setAttribute("src", "./images/sun.png");
     }
   }
 
@@ -42,10 +42,10 @@ export default function Header() {
         />
         <label htmlFor="darkmode-toggle">
           {localStorage.getItem("theme") === "dark" && (
-            <img className="theme-img" src="../images/moon.webp" alt="image of the moon" />
+            <img className="theme-img" src="./images/moon.webp" alt="image of the moon" />
           )}
           {localStorage.getItem("theme") === "light" && (
-            <img className="theme-img" src="../images/sun.png" alt="image of the sun" />
+            <img className="theme-img" src="./images/sun.png" alt="image of the sun" />
           )}
         </label>
       </button>

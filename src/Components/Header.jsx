@@ -38,7 +38,7 @@ export default function Header() {
           type="checkbox"
           id="darkmode-toggle"
           onChange={toggleTheme}
-          defaultChecked={theme === "light"}
+          defaultChecked={theme === "dark"}
         />
         <label htmlFor="darkmode-toggle">
           {localStorage.getItem("theme") === "dark" && (

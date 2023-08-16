@@ -221,6 +221,9 @@ header {
 .theme-img {
   width: clamp(3em, 3vw, 20em);
 }
+.theme-img-wrapper label {
+  cursor: pointer;
+}
 
 .dark-mode-input {
   display: none;

@@ -14,7 +14,7 @@ export default function Countries(props) {
   return (
     <div onClick={handleClick} className="country-wrapper">
       <Link
-        to={`/Countries-App/Country/${props.name}`}
+        to={`/country/${props.name}`}
         style={{ textDecoration: "none" }}
       >
         <div className="display-img-div">

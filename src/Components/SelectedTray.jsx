@@ -11,7 +11,7 @@ export default function SelectedTray(props) {
   return (
     <div className="overall-container">
       <div className="filter-overall-wrapper constant-padding">
-        <Link to="/Countries-App/" style={{ textDecoration: "none" }}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <button className="exit-btn standard-fz3 blue transition constant-margin">
             <i className="fa-solid fa-arrow-left-long"></i>
             Back

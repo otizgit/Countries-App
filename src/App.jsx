@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import SelectedTray from "./Components/SelectedTray";
 import NotFound from "./Components/NotFound";
@@ -56,8 +56,9 @@ export default function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route
-          path="/Countries-App/"
+          path="/home"
           element={
             <Home
               allData={allData}
@@ -68,7 +69,7 @@ export default function App() {
           }
         />
         <Route
-          path="/Countries-App/Country/:id"
+          path="/country/:id"
           element={<SelectedTray data={allData} />}
         />
         <Route path="*" element={<NotFound />} />

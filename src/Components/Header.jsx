@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function Header() {
+  if (localStorage.getItem('theme') === null) {
+    localStorage.setItem('theme', 'dark')
+  }
   function setDarkMode() {
     document.querySelector("body").setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
